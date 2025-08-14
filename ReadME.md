@@ -15,9 +15,11 @@ Online softmax as proposed in the [Online normalizer calculation for softmax](ht
 2. **Numerical Stability**: The online formulation keeps track of the maximum value seen so far and rescales the running sum accordingly.This prevents the exp function from overflowing or underflowing, which is especially important in mixed precision training (FP16/BF16).
 
 The core idea behind online softmax is behind the math fact that:
+
 $$
 e^{x_i} = e^{m} \cdot e^{x_i - m}, \quad e^{m_{\text{old}}} / e^{m_{\text{new}}} = e^{m_{\text{old}} - m_{\text{new}}}
 $$
+
 Below is the simple illustration of the online softmax function, for the full code, please visit this [notebook](https://github.com/YYZhang2025/AI-Notebooks/blob/main/online_softmax.ipynb)
 
 ```Python
